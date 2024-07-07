@@ -2,24 +2,32 @@ import React, { useContext, useRef, useState } from 'react'
 import Context from '../Mycontext/Context';
 
 const Card = ({ userData }) => {
-
+    
+    //access and destructure the functions using useContext hook from Context object
     const {getUpdatedDatas,DeleteUserData} = useContext(Context);
 
+    //Initialize isEditing and SetIsEditing function
     const [isEditing, setIsEditing] = useState(false);
+
+    //Initialize the necessary state and functions to update state
     const [name, setName] = useState(userData.name);
     const [age, setAge] = useState(userData.age);
     const [email, setEmail] = useState(userData.emailID);
     const [mobileNo, setMobileNo] = useState(userData.mobileNumber);
 
+    //Create reference and initialize to empty value
     const input1 = useRef('');
     const input2 = useRef('');
     const input3 = useRef('');
     const input4 = useRef('');
 
+    //function to handle edit button click
     const handleEditBtnClick = () => {
         setIsEditing(!isEditing);
         
     }
+
+    //function to handle update button click
     const handleUpdateBtnClick = () => {
         setIsEditing(!isEditing);
         getUpdatedDatas({
@@ -30,6 +38,7 @@ const Card = ({ userData }) => {
         }, userData.id)
     }
 
+    //function to handle delete button click
     const handleDeleteBtnClick = () => {
         DeleteUserData(userData.id);
     }

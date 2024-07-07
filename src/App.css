@@ -21,11 +21,6 @@
   position: absolute;
 
 }
-
-.custom {
-  background-color: #fff;
-}
-
 .add-btn {
   margin-top: 5px;
 }
@@ -34,6 +29,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
+  color: green;
 } 
 .close-icon {
   margin-left: auto;
@@ -69,7 +65,7 @@
 }
 
 .card-content input:focus {
-  border: 2px solid green;
+  border: 2px solid rgb(0, 128, 0);
 }
 
 .card-content p {
@@ -86,4 +82,9 @@
   justify-content: start;
   gap: 10px;
   margin-top: 10px;
+}
+.custom {
+  background-color: #fff;
+  width: 300px;
+  box-shadow: 0px 15px 25px rgba(0,128,0,.2);
 }

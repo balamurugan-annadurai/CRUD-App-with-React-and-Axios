@@ -4,15 +4,22 @@ import { reducer } from './Reducers/UserDataReducer';
 import Card from './Components/Card';
 import './App.css'
 import Context from './Mycontext/Context';
+
 const App = () => {
+
+  // Initializes state userData and dispatch function using useReducer hook with initial state and a reducer function for state management
   const [userDatas, dispatch] = useReducer(reducer, []);
+
+  //Initializes isAdding state and setIsAdding state using useState hook and initial value false
   const [isAdding, setIsAdding] = useState(false);
 
+  //Create reference and initialize to empty value
   const input1 = useRef('');
   const input2 = useRef('');
   const input3 = useRef('');
   const input4 = useRef('');
 
+  //function to update user data
   const getUpdatedDatas = (updatedDatas, id) => {
     axios.put(`/${id}`, updatedDatas)
     dispatch({
@@ -22,6 +29,7 @@ const App = () => {
     })
   }
 
+  //function to delete user data
   const DeleteUserData = (id) => {
     axios.delete(`/${id}`)
     dispatch({
@@ -30,14 +38,17 @@ const App = () => {
     })
   }
 
+  //function to add user data
   const addDatas = () => {
     setIsAdding(true);
   }
 
+  //function to close add new user data pop-up
   const closeIcon = () => {
     setIsAdding(false);
   }
 
+  //function to add new user data
   const addNewDatas = () => {
     setIsAdding(false);
     const newData = {
@@ -52,6 +63,7 @@ const App = () => {
     }));
   }
 
+  //runs once on component mount's and fetch data's using axios
   useEffect(() => {
     axios.get('/').then(response => dispatch({
       type: 'GET',
@@ -64,7 +76,7 @@ const App = () => {
       <div className='container d-flex flex-column align-items-center'>
         {
           isAdding &&
-          <div className="pop-up-container d-flex vh-100 align-items-center justify-content-center">
+          <div className="no-edit w-100 pop-up-container d-flex vh-100 align-items-center justify-content-center">
             <div className="">
               <div className="card-content custom">
                 <span onClick={closeIcon} className='close-icon'><i className='bx bx-x-circle'></i></span>
@@ -78,7 +90,7 @@ const App = () => {
           </div>
 
         }
-        <h2 className='title'>User Datas <i onClick={addDatas} className='bx bxs-plus-circle addIcon'></i></h2>
+        <h2 className='title p-3'>User Datas <i onClick={addDatas} className='bx bxs-plus-circle addIcon'></i></h2>
         <div className="row w-100">
           {
             userDatas.map((userData, index) => (

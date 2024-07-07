@@ -1,5 +1,4 @@
-import axios from "axios"
-
+//Reducer function manages the state updates based on action type
 export function reducer(userDatas, action) {
     switch (action.type) {
         case 'GET':
