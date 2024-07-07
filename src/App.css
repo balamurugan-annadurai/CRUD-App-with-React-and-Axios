@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans", sans-serif\;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pop-up {
+  z-index: 5;
+}
+
+.pop-up-container {
+  position: absolute;
+
+}
+
+.custom {
+  background-color: #fff;
+}
+
+.add-btn {
+  margin-top: 5px;
+}
+
+.addIcon {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+} 
+.close-icon {
+  margin-left: auto;
+  font-size: 20px;
+  margin-bottom: 14px;
+  cursor: pointer;
+}
+
+.card-content {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 30px 20px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, .1);
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-content:hover {
+  box-shadow: 0 15px 25px rgba(0, 0, 0, .2);
+}
+
+.card-content input {
+  width: 100%;
+  margin: 5px 0;
+  border-radius: 5px;
+  padding: 3px 0;
+  border: 2px solid #c5c3c3;
+  padding-left: 8px;
+  outline: none;
+  transition: .3s;
+}
+
+.card-content input:focus {
+  border: 2px solid green;
+}
+
+.card-content p {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.buttons button {
+  width: 30%;
+}
+
+.buttons {
+  display: flex;
+  justify-content: start;
+  gap: 10px;
+  margin-top: 10px;
+}
